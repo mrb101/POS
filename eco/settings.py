@@ -81,12 +81,6 @@ DATABASES = {
     }
 }
 
-# Update database configuration with $DATABASE_URL.
-import dj_database_url
-
-db_from_env = dj_database_url.config(iconn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -133,7 +127,3 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
