@@ -1,5 +1,5 @@
-€}q(U	pos.tests]Upos.apps]qU	PosConfigqaUeco]U	pos.admin]Umanage]Upos.migrations]Upos.urls]U	pos.views]U
-pos.models]q(UProductqUBillqUTableqUOrderqeUeco.wsgi]q	Uapplicationq
-aUpos]Ueco.settings]q(U	TEMPLATESqUAUTH_PASSWORD_VALIDATORSqUUSE_L10NqUSTATIC_ROOTqUPROJECT_ROOTqULANGUAGE_CODEqUUSE_TZqUUSE_I18NqU	DATABASESqU	TIME_ZONEqU
-STATIC_URLqUROOT_URLCONFqUWSGI_APPLICATIONqUMIDDLEWARE_CLASSESqUDEBUGqUALLOWED_HOSTSqU
-SECRET_KEYqUBASE_DIRqUSTATICFILES_DIRSqUINSTALLED_APPSqeUeco.urls]q Uurlpatternsq!au.
+€}q(U	pos.tests]Upos.apps]qU	PosConfigqaUeco]U	pos.admin]Umanage]Upos.migrations]Upos.urls]U	pos.views]q(UindexqUbarqUmenuqUcashqUtableq	Ucheckoutq
+UkitchenqeU
+pos.models]q(UCategoryqUProductqUBillqUTableqUOrderqeUeco.wsgi]qUapplicationqaUpos]Ueco.settings]q(U	TEMPLATESqUAUTH_PASSWORD_VALIDATORSqUPROJECT_ROOTqUSTATIC_ROOTqUUSE_L10NqULANGUAGE_CODEqUUSE_TZqUUSE_I18NqU	DATABASESqU	TIME_ZONEqU
+STATIC_URLqUROOT_URLCONFq UWSGI_APPLICATIONq!UMIDDLEWARE_CLASSESq"UDEBUGq#UALLOWED_HOSTSq$U
+SECRET_KEYq%UINSTALLED_APPSq&USTATICFILES_DIRSq'UBASE_DIRq(eUeco.urls]q)Uurlpatternsq*au.

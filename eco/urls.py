@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from pos import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='home'),
+    url(r'^tables/$', views.table, name='table')
     # url(r'^kitchen/)
     # url(r'^bar/)
     # url(r'^cash/)

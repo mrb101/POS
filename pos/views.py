@@ -33,7 +33,7 @@ def bar(request):
 
 
 def table(request):
-    template = 'pos/bar.html'
+    template = 'pos/tables.html'
     context = {}
     return render(request, template, context)
 
