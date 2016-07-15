@@ -4,7 +4,8 @@ from models import Table, Product, Order, Bill
 
 def menu(request):
     template = 'pos/menu.html'
-    context = {}
+    products = Product.objects.all()
+    context = {'products': products}
     return render(request, template, context)
 
 
@@ -32,9 +33,10 @@ def bar(request):
     return render(request, template, context)
 
 
-def table(request):
+def table(request, pk):
     template = 'pos/tables.html'
-    context = {}
+    orders = Order.objects.filter(table=pk)
+    context = {'orders': orders}
     return render(request, template, context)
 
 

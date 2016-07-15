@@ -9,6 +9,9 @@ class Table(models.Model):
     number = models.PositiveIntegerField()
     notes = models.CharField(max_length=255, blank=True, null=True)
 
+    def __unicode__(self):
+        return str(self.number)
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
@@ -23,13 +26,16 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     price = models.PositiveIntegerField()
     catgory = models.ForeignKey(Category)
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images', blank=True)
     image_thumb = ImageSpecField(source='image',
                                  processors=[ResizeToFill(100, 100)],
                                  format='JPEG',
                                  options={'quality':60})
     added = models.DateTimeField(auto_now=True, auto_now_add=False)
     updated = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    def __unicode__(self):
+        return self.title
 
 
 class Order(models.Model):
@@ -40,6 +46,9 @@ class Order(models.Model):
     notes = models.CharField(max_length=255, blank=True, null=True)
     created = models.DateTimeField(auto_now=True, auto_now_add=False)
     updated = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    def __unicode__(self):
+        return str(self.number)
 
 
 class Bill(models.Model):

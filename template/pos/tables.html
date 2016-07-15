@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block body %}
-
+<h1>Table "number"</h1>
+<table class="table table-striped">
+    <tr>
+        <th>Product</th>
+        <th>Amount</th>
+        <th>Notes</th>
+{% for order in orders %}
+    <tr>
+        <th>{{order.product}}</th>
+        <th>{{order.amount}}</th>
+        <th>{{order.notes}}</th>
+    </tr>
+{% endfor %}
 {% endblock %}

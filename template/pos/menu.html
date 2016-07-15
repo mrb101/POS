@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+<table class="table table-striped">
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Availability</th>
+    </tr>
+
+    {% for product in products %}
+    <tr class="{% if product.available%} success {% else %} danger {% endif %}">
+        <th>{{product.title}}</th>
+        <th>RM {{product.price}}</th>
+        {% if product.available %}
+            <th>Available</th>
+        {% else %}
+            <th>Sold Out</th>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
