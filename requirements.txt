@@ -1,0 +1,9 @@
+dj-database-url==0.4.1
+Django==1.9.7
+django-appconf==1.0.2
+django-imagekit==3.3
+gunicorn==19.6.0
+pilkit==1.1.13
+Pillow==3.3.0
+six==1.10.0
+whitenoise==3.2
