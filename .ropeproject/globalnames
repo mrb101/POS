@@ -1,7 +1,0 @@
-€}q(U&pos.migrations.0002_auto_20160714_0916]qU	MigrationqaU	pos.forms]qU	LoginFormqaU	pos.tests]Upos.apps]qU	PosConfigqaUeco.wsgi]qUapplicationq	aUeco]Upos.migrations.0001_initial]q
-haU	pos.admin]q(U
-OrderAdminqUOrderItemInlineqUProductAdminqeUmanage]Upos.migrations]Upos.urls]U	pos.views]q(UindexqUtableqUmenuqUcashqUlogout_viewqUcheckoutqU
-login_viewqUbarqUkitchenqeU
-pos.models]q(UCategoryqUProductqU	OrderItemqUBillqUTableqUOrderqeU$pos.migrations.0007_orderitem_status]q haUpos]U&pos.migrations.0004_remove_order_total]q!haU&pos.migrations.0003_auto_20160716_1012]q"haUpos.migrations.0005_order_paid]q#haU#pos.migrations.0006_orderitem_table]q$haUeco.settings]q%(U	TEMPLATESq&UAUTH_PASSWORD_VALIDATORSq'UPROJECT_ROOTq(USTATIC_ROOTq)UUSE_L10Nq*ULANGUAGE_CODEq+UUSE_TZq,UUSE_I18Nq-U	DATABASESq.U	TIME_ZONEq/U
-STATIC_URLq0UROOT_URLCONFq1UWSGI_APPLICATIONq2UMIDDLEWARE_CLASSESq3UDEBUGq4UALLOWED_HOSTSq5U
-SECRET_KEYq6UINSTALLED_APPSq7USTATICFILES_DIRSq8UBASE_DIRq9eUeco.urls]q:Uurlpatternsq;au.
