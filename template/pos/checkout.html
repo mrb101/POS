@@ -1,4 +1,40 @@
 {% extends 'base.html' %}
 {% block body %}
-
+<div class="col-xs-12 row">
+    <div class="col-xs-6">
+        <h3>Customer Information</h3>
+        <h5>Name: </h5>
+        <h5>Table: <span>{{table}}</span></h5>
+        <h5>Order: {{order.number}}</h5>
+    </div>
+    <div class="col-xs-offset-8">
+        <h3>Payment Details</h3>
+        <h5>Amount: <span>{{total}}</span></h5>
+        <h5>Date:</h5>
+    </div>
+</div>
+<div class="col-xs-12" style="margin-top: 20px">
+    <table class="table">
+        <tr style="background-color: black; color: white">
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+        {% for item in orders %}
+        <tr>
+            <th>{{item.product.title}}</th>
+            <th>{{item.quantity}}</th>
+            <th>{{item.total_price}}</th>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="col-xs-offset-10 col-xs-2">
+    <form action="" id="new_order" method="post" class="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="hidden" name="amount" value="{{total}}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Pay</button>
+    </form>
+</div>
 {% endblock %}

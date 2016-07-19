@@ -1,4 +1,18 @@
 {% extends 'base.html' %}
 {% block body %}
-
+<table class="table table-striped">
+    <tr>
+        <th>Table Number</th>
+        <th>Notes</th>
+    </tr>
+    <!-- {% for table in tables %}
+        <img src="" class="img-circle" alt="{{table.number}}" width="200" height="200">
+        {% endfor %} -->
+{% for table in tables %}
+    <tr>
+        <th><a href="/table/{{ table.number }}">{{ table.number }}</th>
+        <th>{{ table.notes }}</th>
+    </tr>
+{% endfor %}
+</table>
 {% endblock %}

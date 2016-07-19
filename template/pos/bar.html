@@ -1,4 +1,19 @@
 {% extends 'base.html' %}
 {% block body %}
-
+<table class="table table-striped">
+    <tr>
+        <th>Drink</th>
+        <th>Notes</th>
+        <th>Table</th>
+        <th>Status</th>
+    </tr>
+    {% for item in drink %}
+    <tr>
+        <th>{{item.product}}</th>
+        <th>{{item.notes}}</th>
+        <th>{{item.table}}</th>
+        <th><input type="checkbox" name="status" value=""{% if item.status %}checked{% else %}{% endif %}></th>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}

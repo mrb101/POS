@@ -1,17 +1,55 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block body %}
-<h1>Table "number"</h1>
-<table class="table table-striped">
-    <tr>
-        <th>Product</th>
-        <th>Amount</th>
-        <th>Notes</th>
-{% for order in orders %}
-    <tr>
-        <th>{{order.product}}</th>
-        <th>{{order.amount}}</th>
-        <th>{{order.notes}}</th>
-    </tr>
-{% endfor %}
+<div class="row">
+    <div class="col-xs-4">
+        <h3>Table: {{table}}</h3>
+    </div>
+    <div class="col-xs-4 pull-lef">
+        <h3>Order: {{order}}</h3>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">
+            <a href="/table/{{table}}/new" class="btn btn-primary btn-block pull-right"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+        <div class="col-xs-2">
+            <a href="/table/{{table}}/checkout" class="btn btn-danger btn-block pull-right"><i class="fa fa-dollar" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</div>
+    <table class="table table-striped">
+        <tr style="background-color: black; color: white">
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Notes</th>
+    {% for item in items %}
+        <tr>
+            <th>{{item.product}}</th>
+            <th>{{item.quantity}}</th>
+            <th>{{item.total_price}}</th>
+            <th>{{item.notes}}</th>
+        </tr>
+    {% endfor %}
+    </table>
+    </br>
+    <h3>Table Order History</h3>
+    <table class="table">
+        <tr>
+            <th>Number</th>
+            <th>status</th>
+            <th>Date</th>
+        </tr>
+        {% for item in history %}
+        <tr>
+            <th>{{item.number}}</th>
+            {% if item.paid == True %}
+            <th>Paid</th>
+            {% else %}
+            <th>Not Paid</th>
+            {% endif %}
+            <th>{{item.created}}</th>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

@@ -21,10 +21,15 @@ from pos import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='home'),
+    url(r'^login', views.login_view, name='login'),
+    url(r'^logout/$', views.logout_view, name='logout'),
     url(r'^cash/', views.cash, name='cash'),
     url(r'^table/(?P<pk>\d+)/$', views.table, name='table'),
+    url(r'^table/(?P<pk>\d+)/(?P<pk2>\d+)/$', views.table, name='table'),
     url(r'^checkout/(?P<pk>\d+)/$', views.checkout, name='checkout'),
     url(r'^kitchen/', views.kitchen, name='kitchen'),
     url(r'^bar/', views.bar, name='bar'),
-    url(r'^menu/', views.menu, name='menu')
+    url(r'^menu/', views.menu, name='menu'),
+    url(r'^table/(?P<pk>\d+)/new', views.new_order, name='new_order'),
+    url(r'^table/(?P<pk>\d+)/checkout', views.checkout, name='checkout')
 ]
