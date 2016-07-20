@@ -1,0 +1,15 @@
+1- Interface Tweaks
+2- VISA withdrwal confirmation
+3- Transaction recording in Bill Model
+4- Reports
+5- Product list SelectField
+6- Table -> Choose Order and then add or Pay
+7- Move to ClassBasedView if needed
+8- Django REST Framework
+9- AngularJS Front End
+10- News Letter and Push to Customer information
+11- Online Served Version (Subscription Based)
+12- Boxed Version localy hosted (One Off Payment)
+13- Legal and Privacy Statments
+14- SMS Notifications
+15- 
