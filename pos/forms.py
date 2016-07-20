@@ -33,11 +33,31 @@ class OrderForm(forms.Form):
 
 
 class PaymentForm(forms.Form):
-    type = forms.CharField(label="Type", required=True, max_length=100,
-                              widget=forms.TextInput(attrs={
-                                  'class': 'form-control',
-                                  'name': 'type'}))
+    type = forms.ChoiceField(label="Type", required=True,
+                             choices=([('Cash', 'Cash'), ('VISA', 'VISA')]),
+                             widget=forms.Select(attrs={
+                                 'class': 'form-control',
+                                 'name': 'type'}))
     cash = forms.IntegerField(label="Cash", required=False,
                               widget=forms.NumberInput(attrs={
                                   'class': 'form-control',
                                   'name': 'cash'}))
+
+
+class ShoppingForm(forms.Form):
+    item = forms.CharField(label="Item", required=True,
+                           widget=forms.TextInput(attrs={
+                               'class': 'form-control',
+                               'name': 'item'}))
+    quantity = forms.IntegerField(label="Quantity", required=True,
+                                  widget=forms.NumberInput(attrs={
+                                     'class': 'form-control',
+                                     'name': 'quantity'}))
+    status = forms.ChoiceField(choices=([('Out of Stock', 'Out of Stock'), ('Few Left', 'Few Left')]),
+                                    widget=forms.Select(attrs={
+                                        'class': 'form-control',
+                                        'name': 'status'}))
+    notes = forms.CharField(label="Notes", required=False,
+                            widget=forms.TextInput(attrs={
+                                'class': 'form-control',
+                                'name': 'notes'}))

@@ -79,7 +79,7 @@ class Bill(models.Model):
 class Shopping(models.Model):
     item = models.CharField(max_length=255)
     quantity = models.IntegerField()
-    status = models.BooleanField()
+    status = models.CharField(max_length=255)
     Notes = models.TextField()
 
     def __unicode__(self):

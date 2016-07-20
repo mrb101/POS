@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.models import User
-from models import Product, Order, OrderItem, Table
-from forms import LoginForm, OrderForm, PaymentForm
-from django.db.models import Sum
+from models import Product, Order, OrderItem, Table, Shopping
+from forms import LoginForm, OrderForm, PaymentForm, ShoppingForm
 
 
 def login_view(request):
@@ -101,7 +100,10 @@ def checkout(request, pk):
         order = Order.objects.filter(table=table).latest('created')
     except Order.DoesNotExist:
         order = None
-    if order.paid == False and not None:
+    if order == None or order.paid == True:
+        messages.success(request, "No open orders on this table")
+        return redirect("/cash")
+    elif order.paid == False:
         orders = OrderItem.objects.filter(order=order)
         total = 0
         for item in orders:
@@ -156,5 +158,22 @@ def new_order(request, pk):
             orderitem.notes = form.cleaned_data.get('notes')
             orderitem.save()
             return redirect('/table/' + pk)
+    context = {'form': form}
+    return render(request, template, context)
+
+
+def shopping(request):
+    template = 'pos/shopping.html'
+    form = ShoppingForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            item = Shopping()
+            item.item = request.POST.get('item')
+            item.quantity = request.POST.get('quantity')
+            item.status = request.POST.get('status')
+            item.Notes = request.POST.get('notes')
+            item.save()
+            messages.success(request, "Item has been added to shopping list")
+            return redirect("/shopping")
     context = {'form': form}
     return render(request, template, context)

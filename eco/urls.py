@@ -31,5 +31,6 @@ urlpatterns = [
     url(r'^bar/', views.bar, name='bar'),
     url(r'^menu/', views.menu, name='menu'),
     url(r'^table/(?P<pk>\d+)/new', views.new_order, name='new_order'),
-    url(r'^table/(?P<pk>\d+)/checkout', views.checkout, name='checkout')
+    url(r'^table/(?P<pk>\d+)/checkout', views.checkout, name='checkout'),
+    url(r'^shopping/', views.shopping, name='shopping')
 ]

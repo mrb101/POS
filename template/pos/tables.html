@@ -1,38 +1,38 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block body %}
-<div class="row">
-    <div class="col-xs-4">
-        <h3>Table: {{table}}</h3>
-    </div>
-    <div class="col-xs-4 pull-lef">
-        <h3>Order: {{order}}</h3>
-    </div>
+<div class="container">
     <div class="row">
         <div class="col-xs-2">
-            <a href="/table/{{table}}/new" class="btn btn-primary btn-block pull-right"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            <h3>Table: {{table}}</h3>
+            <h3>Order: {{order}}</h3>
         </div>
-        <div class="col-xs-2">
-            <a href="/table/{{table}}/checkout" class="btn btn-danger btn-block pull-right"><i class="fa fa-dollar" aria-hidden="true"></i></a>
+        <div class="col-xs-offset-8 col-xs-2"  style="margin-top: 50px">
+                <a href="/table/{{table}}/new" class="btn btn-primary btn-block pull-right"><i class="fa fa-plus" aria-hidden="true"></i></a>
         </div>
     </div>
+    <div>
+        <table class="table table-striped">
+            <tr style="background-color: #1D2731; color: white">
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Notes</th>
+        {% for item in items %}
+            <tr>
+                <th>{{item.product}}</th>
+                <th>{{item.quantity}}</th>
+                <th>{{item.total_price}}</th>
+                <th>{{item.notes}}</th>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <div class="col-xs-2 col-xs-offset-10" style="margin-top: 15px">
+        <a href="/table/{{table}}/checkout" class="btn btn-danger btn-block pull-right"><i class="fa fa-dollar" aria-hidden="true"></i></a>
+    </div>
 </div>
-    <table class="table table-striped">
-        <tr style="background-color: black; color: white">
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Total Price</th>
-            <th>Notes</th>
-    {% for item in items %}
-        <tr>
-            <th>{{item.product}}</th>
-            <th>{{item.quantity}}</th>
-            <th>{{item.total_price}}</th>
-            <th>{{item.notes}}</th>
-        </tr>
-    {% endfor %}
-    </table>
-    </br>
+<div class="container">
     <h3>Table Order History</h3>
     <table class="table">
         <tr>
@@ -41,7 +41,7 @@
             <th>Date</th>
         </tr>
         {% for item in history %}
-        <tr>
+        <tr class="{% if item.paid == False %}danger{% endif %}">
             <th>{{item.number}}</th>
             {% if item.paid == True %}
             <th>Paid</th>
