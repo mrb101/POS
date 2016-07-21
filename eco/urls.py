@@ -13,13 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
 from pos import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^orders/', include('orders.urls')),
+    url(r'^inventory/', include('inventory.urls')),
     url(r'^$', views.index, name='home'),
     url(r'^login', views.login_view, name='login'),
     url(r'^logout/$', views.logout_view, name='logout'),
@@ -32,5 +34,5 @@ urlpatterns = [
     url(r'^menu/', views.menu, name='menu'),
     url(r'^table/(?P<pk>\d+)/new', views.new_order, name='new_order'),
     url(r'^table/(?P<pk>\d+)/checkout', views.checkout, name='checkout'),
-    url(r'^shopping/', views.shopping, name='shopping')
+    url(r'^shopping/', views.shopping, name='shopping'),
 ]

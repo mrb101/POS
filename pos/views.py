@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.models import User
-from models import Product, Order, OrderItem, Table, Shopping
+from models import Table
+from inventory.models import Product, Shopping
+from orders.models import Order, OrderItem
 from forms import LoginForm, OrderForm, PaymentForm, ShoppingForm
 
 
@@ -79,7 +81,7 @@ def table(request, pk):
     template = 'pos/tables.html'
     try:
         order = Order.objects.filter(table=pk).latest('created')
-        if order.paid == True:
+        if order.status == 2:
             order = None
     except Order.DoesNotExist:
         order = None

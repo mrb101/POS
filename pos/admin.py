@@ -1,7 +1,9 @@
 from django.contrib import admin
 
 from imagekit.admin import AdminThumbnail
-from models import Table, Category, Product, Order, OrderItem, Bill
+from models import Table
+from inventory.models import Category, Product
+from orders.models import Order, OrderItem
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -23,4 +25,4 @@ admin.site.register(Table)
 admin.site.register(Category)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Order, OrderAdmin)
-admin.site.register(Bill)
+#admin.site.register(Bill)

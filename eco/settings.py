@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'imagekit',
     'pos',
+    'accounts',
+    'inventory',
+    'orders',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -127,4 +130,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
-
