@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="col-xs-3">
+<table class="table table-striped">
+    <tr style="background-color: #1D2731; color: white">
+        <th>Table Number</th>
+        <th>Notes</th>
+    </tr>
+{% for table in tables %}
+    <tr>
+        <th><a href="/table/{{ table.number }}">{{ table.number }}</th>
+        <th>{{ table.notes }}</th>
+    </tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

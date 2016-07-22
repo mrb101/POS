@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views.generic.list import ListView
+from django.views.generic import TemplateView
 from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
@@ -44,18 +46,21 @@ def menu(request):
     return render(request, template, context)
 
 
+class HomePage(TemplateView):
+    template_name = 'pos/index.html'
+    context = {}
+
+
 def index(request):
     template = 'pos/index.html'
     context = {}
     return render(request, template, context)
 
 
-@login_required(login_url='/login')
-def cash(request):
-    template = 'pos/cash.html'
-    tables = Table.objects.all()
-    context = {'tables': tables}
-    return render(request, template, context)
+class TableList(ListView):
+    model = Table
+    template_name = 'pos/table_list.html'
+    context_object_name = 'tables'
 
 
 @login_required(login_url='/login')

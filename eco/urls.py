@@ -22,10 +22,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^orders/', include('orders.urls')),
     url(r'^inventory/', include('inventory.urls')),
-    url(r'^$', views.index, name='home'),
+    url(r'^counter/', include('pos.urls')),
+    url(r'^$', views.HomePage.as_view(), name='index'),
     url(r'^login', views.login_view, name='login'),
     url(r'^logout/$', views.logout_view, name='logout'),
-    url(r'^cash/', views.cash, name='cash'),
     url(r'^table/(?P<pk>\d+)/$', views.table, name='table'),
     url(r'^table/(?P<pk>\d+)/(?P<pk2>\d+)/$', views.table, name='table'),
     url(r'^checkout/(?P<pk>\d+)/$', views.checkout, name='checkout'),
@@ -34,5 +34,4 @@ urlpatterns = [
     url(r'^menu/', views.menu, name='menu'),
     url(r'^table/(?P<pk>\d+)/new', views.new_order, name='new_order'),
     url(r'^table/(?P<pk>\d+)/checkout', views.checkout, name='checkout'),
-    url(r'^shopping/', views.shopping, name='shopping'),
 ]

@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from django.core.urlresolvers import reverse
 from django.db import models
 
 from inventory.models import Product
@@ -24,6 +24,9 @@ class Order(DateTimeStamp):
     def __unicode__(self):
         return str(self.number)
 
+    def get_absolute_url(self):
+        return reverse("order_detail", kwargs={"pk": self.pk})
+
     @property
     def get_status(self):
         if self.status == 0:
@@ -32,6 +35,7 @@ class Order(DateTimeStamp):
             return "On Hold"
         else:
             return "Order Paid"
+
 
 class OrderItem(DateTimeStamp):
     STATUS = ((0, 'Preparing'), (1, 'Served'))
